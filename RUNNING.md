@@ -29,3 +29,11 @@ Los proyectos de Xcode requieren macOS, Xcode y sus SDK. Puedes editar los archi
 
 Los proyectos `.vcxproj` requieren la carga de trabajo C++ de Visual Studio, el Windows SDK y las bibliotecas nativas que declaran. Revisa `PlatformToolset` y la arquitectura antes de migrarlos a VS 2022. Las comprobaciones C# de esta guía no cubren esas bibliotecas nativas.
 <!-- platform-tools:end -->
+
+
+<!-- improvements-20261119:start -->
+## Mejoras y verificación — 2026-11-19 (Modernización y verificación de compilación .NET para DotZLib)
+
+- **Cambios:** Integrada la migración de `DotZLib.csproj` al formato SDK moderno (`net481`, `AllowUnsafeBlocks=true`) que permite compilar y probar `DotZLib.dll` en MSBuild 17 / VS 2022 sin modificar el código nativo de iOS/Xcode.
+- **Validación:** MSBuild `.NET Framework 4.8.1` (`/restore` + build limpio de `DotZLib.csproj`) + 7/7 aserciones C# sobre `CRC32Checksum`, `ZLibException` y `CircularBuffer`.
+<!-- improvements-20261119:end -->
